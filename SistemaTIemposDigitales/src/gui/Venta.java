@@ -238,7 +238,8 @@ public class Venta extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel107 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
 
         jTable2.setFont(new java.awt.Font("Ubuntu Mono", 1, 24)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
