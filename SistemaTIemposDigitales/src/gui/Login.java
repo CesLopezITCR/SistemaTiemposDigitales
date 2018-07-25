@@ -154,7 +154,7 @@ public class Login extends javax.swing.JFrame {
 
     private String leerUsuarioContr(){
         try {
-            String nombre = "/home/cesar/NetBeansProjects/SistemaTIemposDigitales/src/sistematiemposdigitales/Informacion";
+            String nombre = "C:\\Users\\Cesar\\Documents\\NetBeansProjects\\SistemaTiemposDigitales\\SistemaTIemposDigitales\\src\\sistematiemposdigitales\\Informacion";
             String cadena;
             FileReader f = new FileReader(nombre);
             BufferedReader b = new BufferedReader(f);
@@ -175,8 +175,8 @@ public class Login extends javax.swing.JFrame {
         String contra = campos[1];
         if(jTextField1.getText().equals(nombre) && 
                 jPasswordField1.getText().equals(contra)){
-            Menu menu = new Menu();
-            menu.setVisible(true);
+            //Menu menu = new Menu();
+            //menu.setVisible(true);
             this.setVisible(false);
             JOptionPane.showMessageDialog(null, "Bienvenido");
             
