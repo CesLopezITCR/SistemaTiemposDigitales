@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -152,40 +153,50 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private String leerUsuarioContr(){
+    private ArrayList<String> leerUsuarioContr(){
+        ArrayList<String> usuariosReg = new ArrayList<String>();
         try {
             String nombre = "C:\\Users\\Cesar\\Documents\\NetBeansProjects\\SistemaTiemposDigitales\\SistemaTIemposDigitales\\src\\sistematiemposdigitales\\Informacion";
             String cadena;
             FileReader f = new FileReader(nombre);
             BufferedReader b = new BufferedReader(f);
             while((cadena = b.readLine())!=null) {
-                return cadena;
+                usuariosReg.add(cadena);
             }
             b.close();
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "hola";
+        return usuariosReg;
     }
     
+    private boolean verificar(String uss1, String uss2, String pass1, String pass2){
+        return true;
+    }
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        String dato = leerUsuarioContr();
-        String [] campos = dato.split("¬");
-        System.out.println(campos[0]);
-        System.out.println(campos[1]);
-        String nombre = campos[0];
-        String contra = campos[1];
-        if(jTextField1.getText().equals(nombre) && 
-                jPasswordField1.getText().equals(contra)){
-            //Menu menu = new Menu();
-            //menu.setVisible(true);
-            this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Bienvenido");
-            
+        ArrayList<String> dato = leerUsuarioContr();
+        ArrayList<String> dato1 = new ArrayList<String>();
+        ArrayList<String> dato2 = new ArrayList<String>();
+        for(int x = 0; x < dato.size(); x++){
+            String [] campos = dato.get(x).split("¬");
+            dato1.add(campos[0]);
+            dato2.add(campos[1]);
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña Incorrecta",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+        String nombre = jTextField1.getText();
+        String contra = jPasswordField1.getText();
+        for(int x = 0; x < dato1.size(); x++){
+            if(nombre.equals(dato1.get(x)) && 
+                    contra.equals(dato2.get(x))){
+                //Menu menu = new Menu();
+                //menu.setVisible(true);
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+            }
+            else{
+                if(x < dato.size())
+                    JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña Incorrecta",
+                            "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
