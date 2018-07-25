@@ -191,9 +191,10 @@ public class Login extends javax.swing.JFrame {
                 //menu.setVisible(true);
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Bienvenido");
+                x = dato.size();
             }
             else{
-                if(x < dato.size())
+                if(x == dato.size()-1)
                     JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña Incorrecta",
                             "Error", JOptionPane.ERROR_MESSAGE);
             }
