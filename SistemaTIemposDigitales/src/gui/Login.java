@@ -187,8 +187,8 @@ public class Login extends javax.swing.JFrame {
         for(int x = 0; x < dato1.size(); x++){
             if(nombre.equals(dato1.get(x)) && 
                     contra.equals(dato2.get(x))){
-                //Menu menu = new Menu();
-                //menu.setVisible(true);
+                Principal menu = new Principal();
+                menu.setVisible(true);
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Bienvenido");
                 x = dato.size();
