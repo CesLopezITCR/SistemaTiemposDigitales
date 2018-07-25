@@ -170,7 +170,9 @@ public class Login extends javax.swing.JFrame {
     
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         String dato = leerUsuarioContr();
-        String [] campos = dato.split("\\s+");
+        String [] campos = dato.split("¬");
+        System.out.println(campos[0]);
+        System.out.println(campos[1]);
         String nombre = campos[0];
         String contra = campos[1];
         if(jTextField1.getText().equals(nombre) && 
