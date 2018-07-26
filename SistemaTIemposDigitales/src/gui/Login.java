@@ -58,6 +58,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Ubuntu Mono", 1, 18)); // NOI18N
         jLabel1.setText("Inicio Sesión");
@@ -72,6 +77,11 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
             }
         });
 
@@ -170,10 +180,7 @@ public class Login extends javax.swing.JFrame {
         return usuariosReg;
     }
     
-    private boolean verificar(String uss1, String uss2, String pass1, String pass2){
-        return true;
-    }
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void verificar(){
         ArrayList<String> dato = leerUsuarioContr();
         ArrayList<String> dato1 = new ArrayList<String>();
         ArrayList<String> dato2 = new ArrayList<String>();
@@ -199,7 +206,24 @@ public class Login extends javax.swing.JFrame {
                             "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+    }
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        this.verificar();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if (evt.VK_ENTER==evt.getKeyCode())
+         {
+              this.verificar();
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if (evt.VK_ENTER==evt.getKeyCode())
+         {
+              this.verificar();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
